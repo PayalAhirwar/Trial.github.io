@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Edit Schedule</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+  <h1>Edit Schedule</h1>
+  
+
+  <table id="schedule">
+    <thead>
+      <tr>
+        <th>Classroom</th>
+        <th>Course</th>
+        <th>Instructor</th>
+        <th>Start Time</th>
+        <th>End Time</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Room 101</td>
+        <td>Intro to Computer Science</td>
+        <td>John Smith</td>
+        <td>9:00am</td>
+        <td>10:30am</td>
+      </tr>
+      <tr>
+        <td>Room 102</td>
+        <td>Calculus I</td>
+        <td>Jane Doe</td>
+        <td>11:00am</td>
+        <td>12:30pm</td>
+      </tr>
+      <tr>
+        <td>Room 103</td>
+        <td>English Composition</td>
+        <td>Mark Johnson</td>
+        <td>1:00pm</td>
+        <td>2:30pm</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <button id="edit-schedule">Edit Schedule</button>
+
+  <button id="save-schedule" style="display:none">Save Schedule</button>
+
+  <script>
+    // Get the table and the edit button
+    const scheduleTable = document.getElementById('schedule');
+    const editButton = document.getElementById('edit-schedule');
+    const saveButton = document.getElementById('save-schedule');
+
+    // Add an event listener to the edit button
+    editButton.addEventListener('click', () => {
+      // Make the table cells editable
+      const cells = scheduleTable.getElementsByTagName('td');
+      for (let i = 0; i < cells.length; i++) {
+        cells[i].contentEditable = true;
+      }
+
+      // Show the save button
+      saveButton.style.display = 'block';
+
+      // Hide the edit button
+      editButton.style.display = 'none';
+    });
+
+    // Add an event listener to the save button
+    saveButton.addEventListener('click', () => {
+      // Make the table cells non-editable
+      const cells = scheduleTable.getElementsByTagName('td');
+      for (let i = 0; i < cells.length; i++) {
+        cells[i].contentEditable = false;
+      }
+
+      // Hide the save button
+      saveButton.style.display = 'none';
+
+      // Show the edit button
+      editButton.style.display = 'block';
+    });
+  </script>
+</body>
+</html>
